@@ -8,7 +8,6 @@ const App: React.FC = () => {
   const [milliseconds, setMilliseconds] = useState<number>(0);
   const [seconds, setSeconds] = useState<number>(0);
   const [minutes, setMinutes] = useState<number>(0);
-  const [hours, setHours] = useState<number>(0);
   const [intervalId, setIntervalId] = useState<any>(null);
   const [isPaused, setIsPaused] = useState<boolean>(true);
 const [arrTime, setArrTime] = useState<string[]>([]);
@@ -30,10 +29,6 @@ const [arrTime, setArrTime] = useState<string[]>([]);
         setSeconds((sec) => {
           if (sec === 59) {
             setMinutes((min) => {
-              if (min === 59) {
-                setHours((hr) => hr + 1);
-                return 0;
-              }
               return min + 1;
             });
             return 0;
@@ -59,15 +54,13 @@ const [arrTime, setArrTime] = useState<string[]>([]);
     setMilliseconds(0);
     setSeconds(0);
     setMinutes(0);
-    setHours(0);
   };
 
   const btnFlagHendler = () => {
     const ms = milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds;
     const s = seconds < 10 ? "0" + seconds : seconds;
     const m = minutes < 10 ? "0" + minutes : minutes;
-    const h = hours < 10 ? "0" + hours : hours;
-    setArrTime([...arrTime, `${h}:${m}:${s}:${ms}`]);
+    setArrTime([...arrTime, `${m}:${s}.${ms}`]);
   }
 
   const btnDeleteHendler = () => {
@@ -79,7 +72,7 @@ const [arrTime, setArrTime] = useState<string[]>([]);
       <MdDelete className='delete-icon' onClick={btnDeleteHendler}/>
         <h1>Welcome to Stopwatch</h1>
         <div className='time-container'>
-          <p>{`${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}:${milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds}`}</p>
+          <p>{`${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}.${milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" + milliseconds : milliseconds}`}</p>
         </div>
         <div className="buttons-container">
           <button className={isPaused ? "start" : "pause"} onClick={handlePlayPause}>
