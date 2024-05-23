@@ -1,0 +1,110 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+section {
+height: 600px;
+width: 800px;
+background-color: grey;
+padding: 30px;
+display: flex;
+flex-direction: column;
+align-items: center;
+position: relative;
+}
+
+.time-container {
+  height: 200px;
+  width: 700px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 60px;
+  border-radius: 25px;
+}
+
+.buttons-container {
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 60px;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+  width: 600px;
+  height: 40px;
+  border: none;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.start {
+  background-color: #40A578;
+}
+
+.start:hover {
+  background-color: #9DDE8B;
+}
+
+.pause {
+  background-color : #B4B4B8;
+}
+
+.pause:hover {
+  background-color : #C7C8CC;
+}
+
+.stop {
+  background-color: #D20062;
+}
+
+.stop:hover {
+  background-color: #D6589F;
+}
+
+.flag {
+  background-color: #03AED2;
+}
+
+.flag:hover {
+  background-color: #68D2E8;
+}
+
+.flag-container {
+  height: 100%;
+  width: 700px;
+  display: grid;
+  grid-template-columns: 50% 50% ;
+  color: width;
+  font-size: 60px;
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.flag-time {
+  font-size: 20px;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+}
+
+p {
+  text-align: center;
+}
